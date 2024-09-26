@@ -12,6 +12,13 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-//
+
+// rutas
+
+// Carga la página de inicio
+app.get("/", (req, res) => {
+    res.render("inicio", {});
+  });
+  
 
 
