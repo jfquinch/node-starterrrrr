@@ -11,3 +11,8 @@ const pool = mysql.createPool({
     queueLimit: 0,
   });
   
+   // hace accesible el objeto pool desde
+   // otras clases
+   
+  export default pool;
+
