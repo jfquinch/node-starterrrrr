@@ -8,8 +8,14 @@ import { listarEstudiantes} from "./estudianteController.js";
 
   router.get("/consultarEstudiante", async (req, res) => 
     {
-        const estudiantes = await listarEstudiantes();
-        res.render("pages/estudiantes", { estudiantes });
+        try {
+            const estudiantes = await listarEstudiantes();
+            res.render("pages/estudiantes", { estudiantes });
+          } catch (error) {
+            const { status, message } = error;
+            res.status(status || 500).json({ error: message });
+          }
+        
     
 
     }
