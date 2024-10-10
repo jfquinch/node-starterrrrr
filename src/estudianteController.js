@@ -9,13 +9,5 @@ export const listarEstudiantes = async () => {
     }
   };
 
-  export const insertarEstudiantes = async () => {
-    try {
-      const [rows] = await pool.query("SELECT * FROM estudiantes");
-      return rows;
-    } catch (error) {
-      throw { status: 500, message: "Error al obtener estudiantes" };
-    }
-  };
   
   

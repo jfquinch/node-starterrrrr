@@ -8,7 +8,9 @@ import { listarEstudiantes} from "./estudianteController.js";
 
   router.get("/consultarEstudiante", async (req, res) => 
     {
-        
+        const estudiantes = await listarEstudiantes();
+        res.render("pages/estudiantes", { estudiantes });
+    
 
     }
 )
