@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('../includes/head') %>
+  </head>
+  <body>
+    <%- include('../includes/header') %>
+
+    <div class="container" style="margin-top: 80px !important">
+      <h3 class="text-center">Registrar Curso</h3>
+      <form action="/cursos" method="POST">
+        <div class="mb-3">
+          <label for="nombre_curso" class="form-label">Nombre del Curso</label>
+          <input type="text" name="nombre_curso" class="form-control" required />
+        </div>
+        <div class="d-grid gap-2 col-12 mx-auto mt-4 mb-4">
+          <button class="btn btn-primary" type="submit">Registrar Curso</button>
+        </div>
+      </form>
+
+      <h3 class="text-center mt-5">Lista de Cursos</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre del Curso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let contador = 1; %>
+          <% cursos.forEach(function(curso) { %>
+            <tr>
+              <td><%= contador %></td>
+              <td><%= curso.nombre %></td>
+            </tr>
+            <% contador++; %>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+    <%- include('../includes/scripts') %>
+  </body>
+</html>

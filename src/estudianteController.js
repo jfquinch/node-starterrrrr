@@ -9,5 +9,17 @@ export const listarEstudiantes = async () => {
     }
   };
 
-  
+  export const obtenerEstudiantePorId = async (id) => {
+    try {
+      const [rows] = await pool.query("SELECT * FROM estudiantes WHERE id = ?", [id]);
+      if (rows.length > 0) {
+        return rows[0];
+      } else {
+        throw { status: 404, message: "Estudiante no encontrado" };
+      }
+    } catch (error) {
+      throw { status: 500, message: "Error al obtener el estudiante" };
+    }
+  };
+
   
